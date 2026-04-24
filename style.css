@@ -8,49 +8,45 @@
 body {
   color: #3b2f2f;
   background:
-    radial-gradient(circle at 20% 20%, rgba(255,180,80,0.3), transparent 40%),
-    radial-gradient(circle at 80% 0%, rgba(160,100,50,0.25), transparent 40%),
-    radial-gradient(circle at 50% 80%, rgba(120,160,90,0.25), transparent 40%),
-    #fdf6ec;
+    radial-gradient(circle at 20% 20%, rgba(255,170,60,0.5), transparent 40%),
+    radial-gradient(circle at 80% 0%, rgba(140,80,30,0.4), transparent 40%),
+    radial-gradient(circle at 50% 80%, rgba(100,140,60,0.4), transparent 40%),
+    #fff8f0;
   overflow-x: hidden;
 }
 
-/* 🌸 BATIK LEBIH JELAS */
+/* 🌸 BATIK */
 body::before {
   content: "";
   position: fixed;
   width: 100%;
   height: 100%;
   background-image:
-    radial-gradient(circle, rgba(120,70,30,0.15) 2px, transparent 2px),
-    radial-gradient(circle, rgba(120,70,30,0.1) 3px, transparent 3px);
-  background-size: 35px 35px, 70px 70px;
-  opacity: 0.6;
+    radial-gradient(circle, rgba(90,50,20,0.25) 2px, transparent 2px),
+    radial-gradient(circle, rgba(90,50,20,0.2) 3px, transparent 3px);
+  background-size: 30px 30px, 60px 60px;
+  opacity: 0.8;
   pointer-events: none;
-  animation: batikMove 20s linear infinite;
+  animation: batikMove 15s linear infinite;
 }
 
-/* ✨ GLOW NUSANTARA */
+/* ✨ GLOW */
 body::after {
   content: "";
   position: fixed;
   width: 100%;
   height: 100%;
   background:
-    radial-gradient(circle at 30% 30%, rgba(255,200,120,0.25), transparent 50%),
-    radial-gradient(circle at 70% 70%, rgba(120,160,90,0.2), transparent 50%);
+    radial-gradient(circle at 30% 30%, rgba(255,200,120,0.4), transparent 50%),
+    radial-gradient(circle at 70% 70%, rgba(100,140,60,0.3), transparent 50%);
   pointer-events: none;
   z-index: -1;
 }
 
-/* ANIMASI */
+/* ANIMASI BATIK */
 @keyframes batikMove {
-  0% {
-    background-position: 0 0, 0 0;
-  }
-  100% {
-    background-position: 200px 200px, -200px 200px;
-  }
+  0% { background-position: 0 0, 0 0; }
+  100% { background-position: 200px 200px, -200px 200px; }
 }
 
 /* HERO */
@@ -60,7 +56,7 @@ body::after {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #c58b3a, #8b5e3c, #6b8e23);
+  background: linear-gradient(135deg, #d4a017, #8b5e3c, #556b2f);
   text-align: center;
   padding: 20px;
   color: white;
@@ -90,13 +86,13 @@ body::after {
 .wali-card {
   margin-bottom: 30px;
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateY(50px) scale(0.9);
 }
 
 .wali-card.show {
   opacity: 1;
-  transform: translateY(0);
-  transition: 0.6s;
+  transform: translateY(0) scale(1);
+  transition: 0.5s ease;
 }
 
 .wali-card img {
@@ -104,7 +100,7 @@ body::after {
   height: 110px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid #c58b3a;
+  border: 4px solid #d4a017;
 }
 
 /* GRID */
@@ -116,26 +112,42 @@ body::after {
 
 /* CARD */
 .card {
-  background: rgba(255,255,255,0.8);
-  backdrop-filter: blur(6px);
+  background: rgba(255,255,255,0.9);
   padding: 8px;
   border-radius: 15px;
-  border: 1px solid rgba(120,70,30,0.15);
+  border: 1px solid rgba(90,50,20,0.2);
 
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateY(50px) scale(0.9);
+  will-change: transform, opacity;
 }
 
+/* 🔥 ANIMASI MASUK */
 .card.show {
   opacity: 1;
-  transform: translateY(0);
-  transition: 0.5s;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease,
+    filter 0.5s ease;
+}
+
+/* 🔥 ANIMASI KELUAR */
+.card.hidden {
+  opacity: 0;
+  transform: translateY(60px) scale(0.85);
+  filter: blur(6px);
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease,
+    filter 0.4s ease;
 }
 
 /* HOVER */
 .card:hover {
   transform: translateY(-5px) scale(1.03);
-  box-shadow: 0 10px 25px rgba(120,70,30,0.25);
+  box-shadow: 0 10px 25px rgba(90,50,20,0.3);
 }
 
 /* FOTO */
