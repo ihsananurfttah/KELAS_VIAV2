@@ -4,11 +4,28 @@ function scrollToSection() {
   });
 }
 
-/* DATA ANGGOTA (22 ORANG) */
-const anggota = [
-  { nama: "M.Kinan Aftadithya Naufaldy", foto: "https://i.imgur.com/aGcDJwm.jpg" },
-  { nama: "Muhammad Noval", foto: "https://i.imgur.com/u7fA9MQ.jpg" },
+/* WALI KELAS */
+const wali = {
+  nama: "Ibu Rahmi",
+  foto: "https://i.imgur.com/nAoMqdD.jpg"
+};
 
+/* STRUKTUR */
+const struktur = [
+  {
+    nama: "M.Kinan Aftadithya Naufaldy",
+    foto: "https://i.imgur.com/aGcDJwm.jpg",
+    role: "Ketua Kelas 🏆"
+  },
+  {
+    nama: "Muhammad Noval",
+    foto: "https://i.imgur.com/u7fA9MQ.jpg",
+    role: "Wakil Kelas ⭐"
+  }
+];
+
+/* ANGGOTA */
+const anggota = [
   { nama: "Ahmad Hafi Badali", foto: "https://i.imgur.com/zQOGnQ3.jpg" },
   { nama: "Alqaqa Ibn Amr", foto: "https://i.imgur.com/WHoawyS.jpg" },
   { nama: "Almira Shidqiya", foto: "https://i.imgur.com/JMWgIYs.jpg" },
@@ -34,6 +51,27 @@ const anggota = [
 /* RENDER */
 const container = document.getElementById("anggota");
 
+/* WALI */
+container.innerHTML += `
+  <div class="card special">
+    <img src="${wali.foto}">
+    <p>${wali.nama}</p>
+    <span>Wali Kelas 👩‍🏫</span>
+  </div>
+`;
+
+/* STRUKTUR */
+struktur.forEach(s => {
+  container.innerHTML += `
+    <div class="card special">
+      <img src="${s.foto}">
+      <p>${s.nama}</p>
+      <span>${s.role}</span>
+    </div>
+  `;
+});
+
+/* ANGGOTA */
 anggota.forEach(a => {
   container.innerHTML += `
     <div class="card">
