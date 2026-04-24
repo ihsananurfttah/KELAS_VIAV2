@@ -1,14 +1,14 @@
-function scrollToSection() {
-  document.getElementById("tentang").scrollIntoView({
-    behavior: "smooth"
-  });
-}
+const waliContainer = document.getElementById("wali");
+const anggotaContainer = document.getElementById("anggota");
 
-/* WALI KELAS */
-const wali = {
-  nama: "Ibu Rahmi",
-  foto: "https://i.imgur.com/nAoMqdD.jpg"
-};
+/* WALI KELAS (SENDIRIAN, CENTER) */
+waliContainer.innerHTML = `
+  <div class="wali-card">
+    <img src="https://i.imgur.com/nAoMqdD.jpg">
+    <h3>Ibu Rahmi</h3>
+    <p>Wali Kelas 👩‍🏫</p>
+  </div>
+`;
 
 /* STRUKTUR */
 const struktur = [
@@ -48,35 +48,13 @@ const anggota = [
   { nama: "Zara Sherin Chrestianto", foto: "https://i.imgur.com/taGoUBE.jpg" }
 ];
 
-/* RENDER */
-const container = document.getElementById("anggota");
-
-/* WALI */
-container.innerHTML += `
-  <div class="card special">
-    <img src="${wali.foto}">
-    <p>${wali.nama}</p>
-    <span>Wali Kelas 👩‍🏫</span>
-  </div>
-`;
-
-/* STRUKTUR */
-struktur.forEach(s => {
-  container.innerHTML += `
-    <div class="card special">
-      <img src="${s.foto}">
-      <p>${s.nama}</p>
-      <span>${s.role}</span>
-    </div>
-  `;
-});
-
-/* ANGGOTA */
-anggota.forEach(a => {
-  container.innerHTML += `
+/* MASUKIN KETUA & WAKIL KE GRID ATAS */
+[...struktur, ...anggota].forEach(a => {
+  anggotaContainer.innerHTML += `
     <div class="card">
       <img src="${a.foto}">
       <p>${a.nama}</p>
+      ${a.role ? `<span>${a.role}</span>` : ""}
     </div>
   `;
 });
