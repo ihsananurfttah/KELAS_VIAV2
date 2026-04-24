@@ -9,7 +9,7 @@ const anggotaContainer = document.getElementById("anggota");
 
 /* WALI */
 waliContainer.innerHTML = `
-  <div class="wali-card">
+  <div class="wali-card hidden">
     <img src="https://i.imgur.com/nAoMqdD.jpg">
     <h3>Ibu Rahmi</h3>
     <p>Wali Kelas 👩‍🏫</p>
@@ -57,7 +57,7 @@ const anggota = [
 /* RENDER */
 [...struktur, ...anggota].forEach(a => {
   anggotaContainer.innerHTML += `
-    <div class="card">
+    <div class="card hidden">
       <img src="${a.foto}">
       <p>${a.nama}</p>
       ${a.role ? `<span>${a.role}</span>` : ""}
@@ -65,15 +65,22 @@ const anggota = [
   `;
 });
 
-/* ANIMASI SCROLL */
+/* 🔥 INTERSECTION OBSERVER (VERSI ADVANCE) */
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add("show");
+      entry.target.classList.remove("hidden");
+    } else {
+      entry.target.classList.remove("show");
+      entry.target.classList.add("hidden");
     }
   });
+}, {
+  threshold: 0.2
 });
 
+/* APPLY */
 document.querySelectorAll(".card, .wali-card").forEach(el => {
   observer.observe(el);
 });
