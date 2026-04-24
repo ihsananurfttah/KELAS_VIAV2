@@ -16,7 +16,7 @@ waliContainer.innerHTML = `
   </div>
 `;
 
-/* STRUKTUR */
+/* DATA */
 const struktur = [
   {
     nama: "M.Kinan Aftadithya Naufaldy",
@@ -30,7 +30,6 @@ const struktur = [
   }
 ];
 
-/* ANGGOTA */
 const anggota = [
   { nama: "Ahmad Hafi Badali", foto: "https://i.imgur.com/zQOGnQ3.jpg" },
   { nama: "Alqaqa Ibn Amr", foto: "https://i.imgur.com/WHoawyS.jpg" },
@@ -65,19 +64,23 @@ const anggota = [
   `;
 });
 
-/* 🔥 INTERSECTION OBSERVER (VERSI ADVANCE) */
+/* 🔥 OBSERVER STRICT */
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
+
+    if (entry.intersectionRatio > 0.6) {
+      // kalau 60% masuk layar → tampil
       entry.target.classList.add("show");
       entry.target.classList.remove("hidden");
     } else {
+      // kalau keluar → langsung hilang
       entry.target.classList.remove("show");
       entry.target.classList.add("hidden");
     }
+
   });
 }, {
-  threshold: 0.2
+  threshold: [0, 0.6, 1]
 });
 
 /* APPLY */
