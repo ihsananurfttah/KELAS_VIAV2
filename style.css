@@ -65,7 +65,7 @@ body {
   font-size: 24px;
 }
 
-/* GRID */
+/* GRID (FIX 2 KOLOM TERUS) */
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -88,11 +88,4 @@ body {
 .card img {
   width: 100%;
   border-radius: 10px;
-}
-
-/* RESPONSIVE */
-@media (min-width: 768px) {
-  .grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
 }
