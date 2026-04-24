@@ -1,7 +1,13 @@
+function scrollToSection() {
+  document.getElementById("tentang").scrollIntoView({
+    behavior: "smooth"
+  });
+}
+
 const waliContainer = document.getElementById("wali");
 const anggotaContainer = document.getElementById("anggota");
 
-/* WALI KELAS (SENDIRIAN, CENTER) */
+/* WALI */
 waliContainer.innerHTML = `
   <div class="wali-card">
     <img src="https://i.imgur.com/nAoMqdD.jpg">
@@ -48,7 +54,7 @@ const anggota = [
   { nama: "Zara Sherin Chrestianto", foto: "https://i.imgur.com/taGoUBE.jpg" }
 ];
 
-/* MASUKIN KETUA & WAKIL KE GRID ATAS */
+/* RENDER */
 [...struktur, ...anggota].forEach(a => {
   anggotaContainer.innerHTML += `
     <div class="card">
