@@ -4,8 +4,11 @@ function scrollToSection() {
   });
 }
 
-/* DATA ANGGOTA */
+/* DATA ANGGOTA (22 ORANG) */
 const anggota = [
+  { nama: "M.Kinan Aftadithya Naufaldy", foto: "https://i.imgur.com/aGcDJwm.jpg" },
+  { nama: "Muhammad Noval", foto: "https://i.imgur.com/u7fA9MQ.jpg" },
+
   { nama: "Ahmad Hafi Badali", foto: "https://i.imgur.com/zQOGnQ3.jpg" },
   { nama: "Alqaqa Ibn Amr", foto: "https://i.imgur.com/WHoawyS.jpg" },
   { nama: "Almira Shidqiya", foto: "https://i.imgur.com/JMWgIYs.jpg" },
